@@ -13,53 +13,69 @@
     body { margin: 0; min-height: 100vh; background: #0d6663; font-family: 'Roboto', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 28px 16px; }
     .logo-wrap img { width: 144px; height: auto; display: block; margin: 0 auto 8px; }
     h1 { margin: 0 0 4px; color: #c4df57; font-family: Impact, sans-serif; font-size: 36px; line-height: 1; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
-    .club-nombre { color: #fff; font-size: 14px; font-weight: 400; text-align: center; margin-bottom: 20px; letter-spacing: 0.5px; }
+    .club-nombre { color: #fff; font-size: 14px; font-weight: 400; text-align: center; margin-bottom: 20px; }
     .card { background: #c4df57; border-radius: 24px; width: 100%; max-width: 480px; padding: 24px 20px; box-sizing: border-box; }
     .screen { display: none; }
     .screen.active { display: block; }
     .intro { color: #003a6b; font-size: 14px; line-height: 1.6; text-align: center; margin-bottom: 6px; }
-    .intro-baja { color: #003a6b; font-size: 13px; line-height: 1.6; text-align: center; margin-bottom: 20px; opacity: 0.8; }
+    .intro-baja { color: #003a6b; font-size: 13px; text-align: center; margin-bottom: 20px; opacity: 0.75; }
     .field-label { color: #003a6b; font-size: 12px; font-weight: 900; text-transform: uppercase; margin-bottom: 6px; margin-top: 14px; display: block; }
     input[type=text], input[type=email], textarea { width: 100%; border: 2px solid #0d6663; border-radius: 14px; padding: 12px; background: #edf1dc; color: #003a6b; font-family: 'Roboto', sans-serif; font-size: 15px; outline: none; }
     input.error { border-color: #c0392b; }
     textarea { min-height: 100px; resize: vertical; }
+
     .btn-solid { display: block; width: 100%; padding: 14px; border-radius: 24px; border: none; background: #0d6663; color: #c4df57; font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 16px; text-align: center; text-decoration: none; }
-    .btn-susc {
-      display: block; width: 100%; padding: 14px; border-radius: 12px;
-      border: 2px solid #003a6b; background: transparent; color: #003a6b;
-      font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900;
-      text-transform: uppercase; cursor: pointer; margin-top: 16px; text-align: center;
-      animation: destello 2s ease-in-out infinite;
-    }
-    @keyframes destello {
-      0%, 100% { box-shadow: 0 0 0px rgba(0,58,107,0); }
-      50% { box-shadow: 0 0 12px rgba(0,58,107,0.5), 0 0 24px rgba(0,58,107,0.2); }
-    }
+    .btn-susc { display: block; width: 100%; padding: 14px; border-radius: 12px; border: none; background: #003a6b; color: #fff; font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 16px; text-align: center; }
+    .btn-enviar-cuota { display: block; width: 100%; padding: 14px; border-radius: 12px; border: none; background: #003a6b; color: #fff; font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; }
     .btn-ghost { display: block; width: 100%; padding: 10px; border-radius: 24px; border: none; background: transparent; color: #0d6663; font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; cursor: pointer; margin-top: 4px; text-align: center; }
-    .btn-errata { display: block; width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #c0392b; background: transparent; color: #c0392b; font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; }
-    .btn-cgv { display: block; width: 100%; max-width: 480px; padding: 16px; border-radius: 12px; border: none; background: #0a4f4d; color: #c4df57; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 14px; text-align: center; text-decoration: none; letter-spacing: 0.5px; }
-    .btn-admin { display: block; width: 100%; max-width: 480px; padding: 16px; border-radius: 12px; border: 2px solid #c4df57; background: transparent; color: #c4df57; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; letter-spacing: 0.5px; }
+    .btn-volver { display: block; width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #0d6663; background: transparent; color: #0d6663; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 16px; text-align: center; }
+    .btn-cgv { display: block; width: 100%; max-width: 480px; padding: 16px; border-radius: 12px; border: none; background: #0a4f4d; color: #c4df57; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 14px; text-align: center; text-decoration: none; }
+    .btn-admin { display: block; width: 100%; max-width: 480px; padding: 16px; border-radius: 12px; border: 2px solid #c4df57; background: transparent; color: #c4df57; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; }
+
+    /* pendiente badge */
+    .msg-pendiente { background: #edf1dc; border: 2px solid #003a6b; border-radius: 14px; padding: 12px 14px; color: #003a6b; font-size: 14px; text-align: center; display: none; margin-top: 10px; animation: destelloAzul 2s ease-in-out infinite; }
+    @keyframes destelloAzul { 0%,100%{box-shadow:0 0 0 rgba(0,58,107,0)} 50%{box-shadow:0 0 14px rgba(0,58,107,0.4)} }
+
     .pin-label { text-align: center; color: #003a6b; font-size: 13px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
     .pin-input { display: block; width: 100%; text-align: center; font-size: 28px; font-weight: 900; letter-spacing: 12px; border: 2px solid #0d6663; border-radius: 16px; padding: 12px; background: #edf1dc; color: #003a6b; outline: none; margin-bottom: 12px; }
     .pin-error { text-align: center; color: #c0392b; font-size: 13px; font-weight: 700; min-height: 18px; margin-bottom: 8px; }
+
     .stat-row { display: flex; gap: 10px; margin-bottom: 16px; }
-    .stat-box { flex: 1; background: #edf1dc; border-radius: 14px; padding: 14px; text-align: center; }
-    .stat-num { font-size: 28px; font-weight: 900; color: #0d6663; }
-    .stat-label { font-size: 11px; font-weight: 700; color: #003a6b; text-transform: uppercase; }
-    .suscriptor-list { max-height: 200px; overflow-y: auto; background: #edf1dc; border-radius: 14px; padding: 10px; margin-bottom: 14px; }
+    .stat-box { flex: 1; background: #edf1dc; border-radius: 14px; padding: 10px; text-align: center; }
+    .stat-num { font-size: 24px; font-weight: 900; color: #0d6663; }
+    .stat-label { font-size: 10px; font-weight: 700; color: #003a6b; text-transform: uppercase; }
+
+    /* Lista desplegable */
+    .lista-toggle { background: #edf1dc; border-radius: 14px; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; color: #003a6b; font-size: 13px; font-weight: 700; }
+    .lista-toggle span { font-size: 12px; }
+    .suscriptor-list { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #edf1dc; border-radius: 0 0 14px 14px; margin-bottom: 14px; }
+    .suscriptor-list.open { max-height: 300px; overflow-y: auto; padding: 8px 10px; }
     .suscriptor-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #c4df57; font-size: 13px; color: #003a6b; }
     .suscriptor-item:last-child { border-bottom: none; }
     .badge-activo { background: #d5f5e3; color: #1e8449; font-size: 10px; font-weight: 900; padding: 2px 8px; border-radius: 10px; }
     .badge-baja { background: #fdebd0; color: #a04000; font-size: 10px; font-weight: 900; padding: 2px 8px; border-radius: 10px; }
+    .badge-pendiente { background: #eaf4ff; color: #2471a3; font-size: 10px; font-weight: 900; padding: 2px 8px; border-radius: 10px; }
+
     .divider { border: none; border-top: 1.5px solid #b5cc4a; margin: 18px 0; }
     .section-title { color: #003a6b; font-size: 12px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+
     .msg-box { background: #edf1dc; border-radius: 14px; padding: 12px 14px; color: #003a6b; font-size: 14px; text-align: center; display: none; margin-top: 10px; }
     .msg-box.ok { border: 2px solid #1e8449; color: #1e8449; }
     .msg-box.err { border: 2px solid #c0392b; color: #c0392b; }
     .loading { text-align: center; color: #003a6b; font-size: 13px; font-weight: 700; min-height: 18px; margin: 8px 0; }
+
+    /* Preview comunicado */
+    .preview-box { background: #fff; border: 2px solid #0d6663; border-radius: 14px; padding: 16px; margin-top: 12px; display: none; }
+    .preview-titulo { color: #003a6b; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+    .preview-cuerpo { color: #003a6b; font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
+
     .confirm-icon { font-size: 60px; text-align: center; margin-bottom: 16px; }
     .confirm-titulo { color: #0d6663; font-family: Impact, sans-serif; font-size: 24px; text-align: center; text-transform: uppercase; margin-bottom: 12px; }
     .confirm-texto { color: #003a6b; font-size: 14px; text-align: center; line-height: 1.6; }
+
+    /* Botones externos solo en pantalla pública */
+    .btns-externos { display: none; width: 100%; max-width: 480px; }
+    .btns-externos.visible { display: block; }
   </style>
 </head>
 <body>
@@ -69,16 +85,27 @@
 
   <div class="card">
 
-    <!-- SCREEN: CONFIRMACIÓN -->
+    <!-- CONFIRMACIÓN -->
     <div class="screen" id="screenConfirmado">
       <div class="confirm-icon">✅</div>
       <div class="confirm-titulo">¡Suscripción confirmada!</div>
       <div class="confirm-texto">A partir de ahora recibirás la cuota social mensual y otras novedades del club directamente en tu correo.</div>
-      <div class="confirm-texto" style="margin-top:12px;">Podés darte de baja cuando quieras desde el mismo mail.</div>
+      <div class="confirm-texto" style="margin-top:10px;">Podés darte de baja cuando quieras desde el mismo mail.</div>
       <button class="btn-solid" style="margin-top:24px;" onclick="volverPublico()">Volver al inicio</button>
     </div>
 
-    <!-- SCREEN: SUSCRIPCIÓN -->
+    <!-- BAJA -->
+    <div class="screen" id="screenBaja">
+      <div class="confirm-icon">👋</div>
+      <div class="confirm-titulo">Darse de baja</div>
+      <div class="confirm-texto" style="margin-bottom:20px;">Lamentamos que quieras dejar de recibir el boletín. Podés volver a suscribirte cuando quieras.</div>
+      <div class="msg-box" id="msgBaja"></div>
+      <div class="loading" id="loadingBaja"></div>
+      <button class="btn-solid" style="background:#c0392b;" onclick="confirmarBaja()">Sí, darme de baja</button>
+      <button class="btn-volver" onclick="volverPublico()">Cancelar</button>
+    </div>
+
+    <!-- SUSCRIPCIÓN -->
     <div class="screen active" id="screenPublico">
       <div class="intro">Recibí la cuota social mensual y otras novedades del club directamente en tu correo.</div>
       <div class="intro-baja">Podés darte de baja cuando quieras desde el mismo mail.</div>
@@ -87,11 +114,12 @@
       <span class="field-label">Email *</span>
       <input type="email" id="suscEmail" placeholder="tu@email.com" oninput="validarEmail(this)">
       <div class="loading" id="loadingSusc"></div>
+      <div class="msg-pendiente" id="msgPendiente">📧 Te enviamos un mail de confirmación. Revisá tu casilla.</div>
       <div class="msg-box" id="msgSusc"></div>
       <button class="btn-susc" onclick="suscribir()">Suscribirme</button>
     </div>
 
-    <!-- SCREEN: PIN -->
+    <!-- PIN -->
     <div class="screen" id="screenPin">
       <div class="pin-label">PIN de administración</div>
       <input class="pin-input" type="password" inputmode="numeric" maxlength="4" id="pinInput" placeholder="····">
@@ -100,112 +128,147 @@
       <button class="btn-ghost" onclick="volverPublico()">Cancelar</button>
     </div>
 
-    <!-- SCREEN: ADMIN -->
+    <!-- ADMIN -->
     <div class="screen" id="screenAdmin">
       <div class="stat-row">
         <div class="stat-box"><div class="stat-num" id="statActivos">—</div><div class="stat-label">Activos</div></div>
+        <div class="stat-box"><div class="stat-num" id="statPendientes">—</div><div class="stat-label">Pendientes</div></div>
         <div class="stat-box"><div class="stat-num" id="statBajas">—</div><div class="stat-label">Bajas</div></div>
         <div class="stat-box"><div class="stat-num" id="statTotal">—</div><div class="stat-label">Total</div></div>
       </div>
-      <div class="suscriptor-list" id="listaSuscriptores">
-        <div style="text-align:center;color:#003a6b;font-size:13px;">Cargando...</div>
+
+      <div class="lista-toggle" onclick="toggleLista()" id="listaToggle">
+        <span>Ver suscriptores</span>
+        <span id="listaFlecha">▼</span>
       </div>
+      <div class="suscriptor-list" id="listaSuscriptores"></div>
+
       <hr class="divider">
       <div class="section-title">Agregar manualmente</div>
-      <span class="field-label">Nombre (opcional)</span>
-      <input type="text" id="adminNombre" placeholder="Nombre">
+      <span class="field-label">Nombre y apellido / Razón social</span>
+      <input type="text" id="adminNombre" placeholder="Ej: María González">
       <span class="field-label">Email *</span>
       <input type="email" id="adminEmail" placeholder="email@ejemplo.com">
       <div class="loading" id="loadingAdmin"></div>
       <div class="msg-box" id="msgAdmin"></div>
       <button class="btn-solid" onclick="agregarManual()">Agregar</button>
+
       <hr class="divider">
-      <div class="section-title">Boletín mensual</div>
+      <div class="section-title">Enviar cuota social</div>
       <p style="color:#003a6b;font-size:13px;margin:0 0 10px;">Envía la cuota vigente a todos los suscriptores activos.</p>
       <div class="loading" id="loadingMensual"></div>
       <div class="msg-box" id="msgMensual"></div>
-      <button class="btn-solid" onclick="enviarMensual()">Enviar boletín del mes</button>
+      <button class="btn-enviar-cuota" onclick="enviarMensual()">Enviar cuota social (manual)</button>
+
       <hr class="divider">
       <div class="section-title">Comunicado libre</div>
       <span class="field-label">Asunto</span>
-      <input type="text" id="commAsunto" placeholder="Ej: Convocatoria a Asamblea">
+      <input type="text" id="commAsunto" placeholder="Ej: Convocatoria a Asamblea" oninput="actualizarPreview()">
       <span class="field-label">Mensaje</span>
-      <textarea id="commCuerpo" placeholder="Escribí el mensaje..."></textarea>
+      <textarea id="commCuerpo" placeholder="Escribí el mensaje..." oninput="actualizarPreview()"></textarea>
+      <div class="preview-box" id="previewBox">
+        <div class="preview-titulo">Vista previa del mensaje</div>
+        <div class="preview-cuerpo" id="previewCuerpo"></div>
+      </div>
       <div class="loading" id="loadingComm"></div>
       <div class="msg-box" id="msgComm"></div>
       <button class="btn-solid" onclick="enviarComunicado()">Enviar a todos</button>
+
       <hr class="divider">
-      <div class="section-title" style="color:#c0392b;">Fe de erratas</div>
-      <p style="color:#003a6b;font-size:13px;margin:0 0 10px;">Enviá una corrección sobre la cuota informada.</p>
-      <textarea id="errataTexto" placeholder="Ej: El valor correcto del lote es $145.000..."></textarea>
-      <div class="loading" id="loadingErrata"></div>
-      <div class="msg-box" id="msgErrata"></div>
-      <button class="btn-errata" onclick="enviarErrata()">Enviar fe de erratas</button>
+      <div class="section-title">Historial de envíos</div>
+      <div id="logEnvios" style="background:#edf1dc;border-radius:14px;padding:12px;font-size:12px;color:#003a6b;">Cargando...</div>
+
       <hr class="divider">
-      <button class="btn-ghost" onclick="cerrarAdmin()">Cerrar sesión</button>
+      <button class="btn-volver" onclick="cerrarAdmin()">Volver al inicio</button>
     </div>
 
   </div>
 
-  <a class="btn-cgv" href="https://clubdecampolaeugenia.taplink.site/" target="_blank">Ir al Centro de Gestión Vecinal</a>
-  <button class="btn-admin" onclick="mostrarPin()">Administración</button>
+  <div class="btns-externos" id="btnsExternos">
+    <a class="btn-cgv" href="https://clubdecampolaeugenia.taplink.site/" target="_blank">Ir al Centro de Gestión Vecinal</a>
+    <button class="btn-admin" onclick="mostrarPin()">Administración</button>
+  </div>
 
 <script>
 const PIN = '1112';
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwhPg43JwP_WH7qhq-kPT9n3EFJZ7SJby0iVBo1uzHIRz3vAZbYN9kMzH1SgWxOe1CY/exec';
+const NOMBRE_CLUB = 'La Eugenia Club de Campo';
+const URL_BOLETIN = 'https://clubdecampolaeugenia.github.io/boletin-la-eugenia/';
 
-// Detectar token en URL al cargar
+let emailParaBaja = '';
+
 window.addEventListener('load', () => {
   const params = new URLSearchParams(window.location.search);
   const token = params.get('token');
+  const baja = params.get('baja');
+  const email = params.get('email');
   if (token) confirmarToken(token);
+  else if (baja && email) { emailParaBaja = decodeURIComponent(email); mostrarScreen('screenBaja'); ocultarBtnsExternos(); }
+  else { mostrarBtnsExternos(); }
 });
 
+function mostrarBtnsExternos() { document.getElementById('btnsExternos').classList.add('visible'); }
+function ocultarBtnsExternos() { document.getElementById('btnsExternos').classList.remove('visible'); }
+
 async function confirmarToken(token) {
-  document.getElementById('loadingSusc') && (document.getElementById('loadingSusc').innerText = 'Confirmando suscripción...');
   try {
     const r = await llamarScript({ accion: 'confirmar', token });
-    if (r.ok) {
-      mostrarScreen('screenConfirmado');
-    } else {
-      mostrarScreen('screenPublico');
-    }
+    mostrarScreen(r.ok ? 'screenConfirmado' : 'screenPublico');
+    ocultarBtnsExternos();
+  } catch(e) { mostrarScreen('screenPublico'); mostrarBtnsExternos(); }
+}
+
+async function confirmarBaja() {
+  if (!emailParaBaja) { mostrarMsg('msgBaja', 'No se encontró el email.', 'err'); return; }
+  document.getElementById('loadingBaja').innerText = 'Procesando...';
+  try {
+    const r = await llamarScript({ accion: 'baja', email: emailParaBaja });
+    document.getElementById('loadingBaja').innerText = '';
+    mostrarMsg('msgBaja', r.mensaje, r.ok ? 'ok' : 'err');
   } catch(e) {
-    mostrarScreen('screenPublico');
+    document.getElementById('loadingBaja').innerText = '';
+    mostrarMsg('msgBaja', 'Error. Intentá de nuevo.', 'err');
   }
 }
 
 function capitalizarNombre(input) {
   input.value = input.value.replace(/\b\w/g, c => c.toUpperCase());
 }
-
 function filtrarNombre(input) {
   input.value = input.value.replace(/[0-9]/g, '');
 }
-
 function validarEmail(input) {
-  const esValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
-  input.classList.toggle('error', input.value.length > 0 && !esValido);
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+  input.classList.toggle('error', input.value.length > 0 && !ok);
 }
 
 function mostrarScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
-function mostrarPin() { mostrarScreen('screenPin'); document.getElementById('pinInput').value = ''; document.getElementById('pinError').innerText = ''; }
-function volverPublico() { mostrarScreen('screenPublico'); }
-function cerrarAdmin() { mostrarScreen('screenPublico'); }
+function mostrarPin() { mostrarScreen('screenPin'); ocultarBtnsExternos(); document.getElementById('pinInput').value = ''; document.getElementById('pinError').innerText = ''; }
+function volverPublico() { mostrarScreen('screenPublico'); mostrarBtnsExternos(); }
+function cerrarAdmin() { mostrarScreen('screenPublico'); mostrarBtnsExternos(); }
 
 function verificarPin() {
   if (document.getElementById('pinInput').value === PIN) {
     mostrarScreen('screenAdmin');
+    ocultarBtnsExternos();
     cargarSuscriptores();
+    cargarLog();
   } else {
     document.getElementById('pinError').innerText = 'PIN incorrecto.';
     document.getElementById('pinInput').value = '';
   }
 }
 document.getElementById('pinInput').addEventListener('keydown', e => { if (e.key === 'Enter') verificarPin(); });
+
+function toggleLista() {
+  const lista = document.getElementById('listaSuscriptores');
+  const flecha = document.getElementById('listaFlecha');
+  lista.classList.toggle('open');
+  flecha.innerText = lista.classList.contains('open') ? '▲' : '▼';
+}
 
 async function llamarScript(params) {
   return new Promise((resolve) => {
@@ -230,7 +293,7 @@ function mostrarMsg(id, texto, tipo) {
   el.innerText = texto;
   el.className = 'msg-box ' + tipo;
   el.style.display = 'block';
-  setTimeout(() => { el.style.display = 'none'; }, 5000);
+  setTimeout(() => { el.style.display = 'none'; }, 6000);
 }
 
 async function suscribir() {
@@ -242,8 +305,13 @@ async function suscribir() {
   try {
     const r = await llamarScript({ accion: 'suscribir', email, nombre });
     document.getElementById('loadingSusc').innerText = '';
-    mostrarMsg('msgSusc', r.mensaje, r.ok ? 'ok' : 'err');
-    if (r.ok) { document.getElementById('suscEmail').value = ''; document.getElementById('suscNombre').value = ''; }
+    if (r.ok) {
+      document.getElementById('msgPendiente').style.display = 'block';
+      document.getElementById('suscEmail').value = '';
+      document.getElementById('suscNombre').value = '';
+    } else {
+      mostrarMsg('msgSusc', r.mensaje, 'err');
+    }
   } catch(e) {
     document.getElementById('loadingSusc').innerText = '';
     mostrarMsg('msgSusc', 'Error. Intentá de nuevo.', 'err');
@@ -254,21 +322,23 @@ async function cargarSuscriptores() {
   try {
     const r = await llamarScript({ accion: 'listar' });
     document.getElementById('statActivos').innerText = r.activos;
+    document.getElementById('statPendientes').innerText = r.pendientes || 0;
     document.getElementById('statBajas').innerText = r.bajas;
     document.getElementById('statTotal').innerText = r.total;
+    document.getElementById('listaToggle').querySelector('span').innerText = `Ver suscriptores (${r.total})`;
     const lista = document.getElementById('listaSuscriptores');
     if (!r.suscriptores || r.suscriptores.length === 0) {
-      lista.innerHTML = '<div style="text-align:center;color:#003a6b;font-size:13px;">Sin suscriptores aún.</div>';
+      lista.innerHTML = '<div style="padding:10px;text-align:center;color:#003a6b;font-size:13px;">Sin suscriptores aún.</div>';
       return;
     }
     lista.innerHTML = r.suscriptores.map(s =>
       `<div class="suscriptor-item">
         <span>${s.nombre ? s.nombre + ' — ' : ''}${s.email}</span>
-        <span class="badge-${s.activo ? 'activo' : 'baja'}">${s.activo ? 'Activo' : 'Baja'}</span>
+        <span class="badge-${s.estado}">${s.estado === 'activo' ? 'Activo' : s.estado === 'pendiente' ? 'Pendiente' : 'Baja'}</span>
       </div>`
     ).join('');
   } catch(e) {
-    document.getElementById('listaSuscriptores').innerHTML = '<div style="color:#c0392b;font-size:13px;text-align:center;">Error cargando lista.</div>';
+    document.getElementById('listaSuscriptores').innerHTML = '<div style="color:#c0392b;font-size:13px;padding:10px;">Error cargando lista.</div>';
   }
 }
 
@@ -289,48 +359,60 @@ async function agregarManual() {
 }
 
 async function enviarMensual() {
-  if (!confirm('¿Enviar el boletín mensual a todos los suscriptores activos?')) return;
+  if (!confirm('⚠️ Estás por enviar el valor de la cuota social a todos los suscriptores activos.\n\n¿Confirmás el envío?')) return;
   document.getElementById('loadingMensual').innerText = 'Enviando...';
   try {
     const r = await llamarScript({ accion: 'enviarMensual' });
     document.getElementById('loadingMensual').innerText = '';
     mostrarMsg('msgMensual', r.mensaje, r.ok ? 'ok' : 'err');
+    if (r.ok) cargarLog();
   } catch(e) {
     document.getElementById('loadingMensual').innerText = '';
     mostrarMsg('msgMensual', 'Error al enviar.', 'err');
   }
 }
 
+function actualizarPreview() {
+  const asunto = document.getElementById('commAsunto').value.trim();
+  const cuerpo = document.getElementById('commCuerpo').value.trim();
+  const preview = document.getElementById('previewBox');
+  if (!asunto && !cuerpo) { preview.style.display = 'none'; return; }
+  preview.style.display = 'block';
+  const firma = `\n\n──────────────────────────\nAtentos saludos,\n${NOMBRE_CLUB}`;
+  document.getElementById('previewCuerpo').innerText =
+    (asunto ? `Asunto: ${asunto}\n\n` : '') + cuerpo + firma;
+}
+
 async function enviarComunicado() {
   const asunto = document.getElementById('commAsunto').value.trim();
   const cuerpo = document.getElementById('commCuerpo').value.trim();
   if (!asunto || !cuerpo) { mostrarMsg('msgComm', 'Completá el asunto y el mensaje.', 'err'); return; }
-  if (!confirm('¿Enviar este comunicado a todos los suscriptores activos?')) return;
+  if (!confirm(`¿Enviar este comunicado a todos los suscriptores activos?\n\nAsunto: ${asunto}`)) return;
   document.getElementById('loadingComm').innerText = 'Enviando...';
   try {
     const r = await llamarScript({ accion: 'enviarComunicado', asunto, cuerpo });
     document.getElementById('loadingComm').innerText = '';
     mostrarMsg('msgComm', r.mensaje, r.ok ? 'ok' : 'err');
-    if (r.ok) { document.getElementById('commAsunto').value = ''; document.getElementById('commCuerpo').value = ''; }
+    if (r.ok) { document.getElementById('commAsunto').value = ''; document.getElementById('commCuerpo').value = ''; document.getElementById('previewBox').style.display = 'none'; cargarLog(); }
   } catch(e) {
     document.getElementById('loadingComm').innerText = '';
     mostrarMsg('msgComm', 'Error al enviar.', 'err');
   }
 }
 
-async function enviarErrata() {
-  const texto = document.getElementById('errataTexto').value.trim();
-  if (!texto) { mostrarMsg('msgErrata', 'Escribí el texto de la corrección.', 'err'); return; }
-  if (!confirm('¿Enviar esta fe de erratas a todos los suscriptores activos?')) return;
-  document.getElementById('loadingErrata').innerText = 'Enviando...';
+async function cargarLog() {
   try {
-    const r = await llamarScript({ accion: 'enviarErrata', texto });
-    document.getElementById('loadingErrata').innerText = '';
-    mostrarMsg('msgErrata', r.mensaje, r.ok ? 'ok' : 'err');
-    if (r.ok) document.getElementById('errataTexto').value = '';
+    const r = await llamarScript({ accion: 'logEnvios' });
+    const el = document.getElementById('logEnvios');
+    if (!r.envios || r.envios.length === 0) { el.innerText = 'Sin envíos registrados aún.'; return; }
+    el.innerHTML = r.envios.slice(0, 10).map(e =>
+      `<div style="padding:4px 0;border-bottom:1px solid #c4df57;">
+        <strong>${e.tipo}</strong> — ${e.asunto} <span style="opacity:0.6;">(${e.cantidad} dest.)</span><br>
+        <span style="font-size:11px;opacity:0.6;">${new Date(e.fecha).toLocaleDateString('es-AR')}</span>
+      </div>`
+    ).join('');
   } catch(e) {
-    document.getElementById('loadingErrata').innerText = '';
-    mostrarMsg('msgErrata', 'Error al enviar.', 'err');
+    document.getElementById('logEnvios').innerText = 'Error cargando historial.';
   }
 }
 </script>
