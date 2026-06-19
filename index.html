@@ -335,15 +335,6 @@
       <button type="button" class="btn-azul" onclick="enviarMensual()">Enviar manualmente #BoletínMensual</button>
 
       <hr class="divider">
-      <div class="gestionar-toggle" onclick="toggleHistorialNov()">
-        <span>Últimas 5 novedades enviadas</span>
-        <span id="historialNovFlecha">▼</span>
-      </div>
-      <div class="gestionar-panel" id="historialNovPanel" style="display:none;">
-        <div id="logNovedades" style="font-size:12px;color:var(--petroleo);line-height:1.6;">Cargando...</div>
-      </div>
-
-      <hr class="divider">
       <div class="gestionar-toggle" onclick="toggleHistorial()">
         <span>Últimos 5 #BoletinesMensuales enviados</span>
         <span id="historialFlecha">▼</span>
@@ -439,7 +430,6 @@ function verificarPin() {
     cargarSuscriptores();
     cargarLog();
     cargarNovedades();
-    cargarHistorialNovedades();
   } else {
     document.getElementById('pinError').innerText = 'PIN incorrecto.';
     document.getElementById('pinInput').value = '';
@@ -457,25 +447,22 @@ function toggleMini(panelId, flechaId) {
   flecha.innerText = panel.classList.contains('open') ? '▲' : '▼';
 }
 
-function toggleGestionar() {
-  const panel = document.getElementById('gestionarPanel');
-  const flecha = document.getElementById('gestionarFlecha');
+function togglePanel(panelId, flechaId) {
+  const panel = document.getElementById(panelId);
+  const flecha = document.getElementById(flechaId);
   const isOpen = panel.classList.contains('open');
   panel.classList.toggle('open');
   flecha.innerText = isOpen ? '▼' : '▲';
 }
 
+function toggleGestionar() { togglePanel('gestionarPanel', 'gestionarFlecha'); }
+function toggleNovedades() { togglePanel('novedadesPanel', 'novedadesFlecha'); }
+function toggleComunicado() { togglePanel('comunicadoPanel', 'comunicadoFlecha'); }
+function togglePrueba() { togglePanel('pruebaPanel', 'pruebaFlecha'); }
+
 function toggleHistorial() {
   const panel = document.getElementById('historialPanel');
   const flecha = document.getElementById('historialFlecha');
-  const isOpen = panel.style.display !== 'none';
-  panel.style.display = isOpen ? 'none' : 'block';
-  flecha.innerText = isOpen ? '▼' : '▲';
-}
-
-function toggleHistorialNov() {
-  const panel = document.getElementById('historialNovPanel');
-  const flecha = document.getElementById('historialNovFlecha');
   const isOpen = panel.style.display !== 'none';
   panel.style.display = isOpen ? 'none' : 'block';
   flecha.innerText = isOpen ? '▼' : '▲';
@@ -728,22 +715,28 @@ async function corregirNovedad() {
   }
 }
 
-async function cargarHistorialNovedades() {
+async function corregirComunicado() {
+  const asunto = document.getElementById('commAsunto').value.trim();
+  const cuerpo = document.getElementById('commCuerpo').value.trim();
+  if (!asunto || !cuerpo) { mostrarMsg('msgComm', 'Completá el asunto y el mensaje antes de corregir.', 'err'); return; }
+
+  document.getElementById('btnCommIA').classList.add('on');
+  document.getElementById('loadingCommIA').innerText = 'Corrigiendo con IA...';
   try {
-    const r = await llamarScript({ accion: 'historialNovedades' });
-    const el = document.getElementById('logNovedades');
-    if (!r.historial || r.historial.length === 0) { el.innerText = 'Sin novedades enviadas aún.'; return; }
-    el.innerHTML = r.historial.map(n => {
-      const fecha = new Date(n.fechaEnvio);
-      const fechaStr = fecha.toLocaleDateString('es-AR', {day:'2-digit',month:'2-digit',year:'numeric'});
-      return `<div style="padding:6px 0;border-bottom:1px solid #9bb583;">
-        <div style="font-weight:900;">${escaparTexto(n.titulo)}</div>
-        <div style="opacity:0.8;">${escaparTexto(n.descripcion)}</div>
-        <div style="opacity:0.6;font-size:11px;margin-top:2px;">${n.periodoBoletin} — ${fechaStr}</div>
-      </div>`;
-    }).join('');
+    const r = await llamarScript({ accion: 'corregirComunicadoIA', asunto, cuerpo });
+    document.getElementById('loadingCommIA').innerText = '';
+    if (r.ok) {
+      document.getElementById('commAsunto').value = r.asunto;
+      document.getElementById('commCuerpo').value = r.cuerpo;
+      actualizarPreview();
+    } else {
+      mostrarMsg('msgComm', r.mensaje, 'err');
+      document.getElementById('btnCommIA').classList.remove('on');
+    }
   } catch(e) {
-    document.getElementById('logNovedades').innerText = 'Error cargando historial.';
+    document.getElementById('loadingCommIA').innerText = '';
+    mostrarMsg('msgComm', 'Error al corregir.', 'err');
+    document.getElementById('btnCommIA').classList.remove('on');
   }
 }
 
@@ -788,7 +781,6 @@ async function enviarMensual() {
     if (r.ok) {
       cargarLog();
       cargarNovedades();
-      cargarHistorialNovedades();
     }
   } catch(e) {
     document.getElementById('loadingMensual').innerText = '';
@@ -854,14 +846,33 @@ async function cargarLog() {
         const asuntoMostrar = esMensual 
           ? `#BoletínMensual — Cuota Social — ${e.asunto.replace('Cuota social — ','')}`
           : `Comunicado — ${e.asunto}`;
+        const btnVer = (esMensual && e.htmlId)
+          ? `<button type="button" onclick="verBoletinEnviado('${e.htmlId}')" style="background:transparent;border:1.5px solid #135457;color:#135457;font-size:10px;font-weight:900;text-transform:uppercase;padding:3px 10px;border-radius:10px;cursor:pointer;margin-left:6px;">Ver</button>`
+          : '';
         return `<div style="padding:5px 0;border-bottom:1px solid #c4df57;font-size:12px;">
-          ${asuntoMostrar} ${tag}<br>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+            <span>${asuntoMostrar} ${tag}</span>${btnVer}
+          </div>
           <span style="opacity:0.6;font-size:11px;">${fechaStr}</span>
         </div>`;
       }).join('')}
     `).join('');
   } catch(e) {
     document.getElementById('logEnvios').innerText = 'Error cargando historial.';
+  }
+}
+
+async function verBoletinEnviado(htmlId) {
+  try {
+    const r = await llamarScript({ accion: 'obtenerHTMLEnvio', id: htmlId });
+    if (!r.ok) { alert(r.mensaje); return; }
+    const box = document.getElementById('previewHtmlBox');
+    const iframe = document.getElementById('previewIframe');
+    iframe.srcdoc = r.html;
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch(e) {
+    alert('Error al cargar el boletín enviado.');
   }
 }
 </script>
