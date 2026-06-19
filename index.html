@@ -61,7 +61,6 @@
       transform: scale(0.96);
     }
 
-    /* Botón primario de acción dentro de card: naranja, borde/texto petróleo */
     .btn-solid { display: block; width: 100%; padding: 14px; border-radius: 24px; border: 2px solid var(--petroleo); background: var(--naranja); color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 16px; text-align: center; text-decoration: none; }
     .btn-solid:hover { opacity: 0.88; }
 
@@ -71,7 +70,6 @@
     .btn-azul { display: block; width: 100%; padding: 14px; border-radius: 24px; border: 2px solid var(--petroleo); background: var(--naranja); color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; }
     .btn-azul:hover { opacity: 0.88; }
 
-    /* Acción destructiva: mantiene identidad de alerta, pero con borde acorde */
     .btn-rojo { display: block; width: 100%; padding: 14px; border-radius: 24px; border: 2px solid var(--error); background: var(--error); color: var(--blanco); font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; }
     .btn-rojo:hover { opacity: 0.88; }
 
@@ -80,11 +78,9 @@
 
     .btn-ghost { display: block; width: 100%; padding: 10px; border-radius: 24px; border: none; background: transparent; color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; cursor: pointer; margin-top: 4px; text-align: center; }
 
-    /* Botón "Ir al CGV": fuera de card, píldora lima, texto/borde petróleo */
     .btn-cgv { display: block; width: 100%; max-width: 480px; padding: 16px; border-radius: 12px; border: 2px solid var(--petroleo); background: var(--lima); color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 14px; text-align: center; text-decoration: none; }
     .btn-cgv:hover { opacity: 0.88; }
 
-    /* Botón "acceso reservado / volver al menú": fuera de card, transparente, borde/texto lima */
     .btn-admin { display: block; width: 100%; max-width: 480px; padding: 16px; border-radius: 12px; border: 2px solid var(--lima); background: transparent; color: var(--lima); font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; }
     .btn-admin:hover { opacity: 0.75; }
 
@@ -126,21 +122,18 @@
     .confirm-titulo { color: var(--negro); font-family: Impact, sans-serif; font-size: 24px; text-align: center; text-transform: uppercase; margin-bottom: 12px; }
     .confirm-texto { color: var(--petroleo); font-size: 14px; text-align: center; line-height: 1.6; }
 
-    /* LISTA SUSCRIPTORES */
     .lista-wrap { margin-bottom: 14px; }
     .lista-seccion { margin-bottom: 10px; }
     .lista-seccion-titulo { background: var(--blanco); border-radius: 10px 10px 0 0; padding: 8px 12px; font-size: 11px; font-weight: 900; color: var(--petroleo); text-transform: uppercase; }
     .lista-seccion-items { background: var(--blanco); border-radius: 0 0 10px 10px; max-height: 180px; overflow-y: auto; }
     .lista-seccion-vacia { padding: 8px 12px; font-size: 12px; color: var(--petroleo); opacity: 0.6; }
 
-    /* MINI TOGGLES SUSCRIPTORES */
     .mini-toggle { display: flex; justify-content: space-between; align-items: center; padding: 7px 12px; background: var(--blanco); border-radius: 10px; margin-bottom: 2px; cursor: pointer; font-size: 11px; font-weight: 900; color: var(--negro); text-transform: uppercase; transition: transform 0.08s; }
     .mini-toggle:active { transform: scale(0.97); }
     .mini-flecha { font-size: 10px; opacity: 0.6; }
     .mini-panel { display: none; background: var(--blanco); border-radius: 0 0 10px 10px; max-height: 160px; overflow-y: auto; margin-bottom: 6px; }
     .mini-panel.open { display: block; }
 
-    /* GESTIONAR PANEL */
     .gestionar-toggle { background: var(--blanco); border-radius: 14px; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; color: var(--negro); font-size: 13px; font-weight: 700; transition: transform 0.08s; }
     .gestionar-toggle:active { transform: scale(0.98); }
     .gestionar-panel { background: var(--blanco); border-radius: 0 0 14px 14px; padding: 14px; margin-bottom: 4px; display: none; }
@@ -150,6 +143,26 @@
     .btns-externos { display: none; width: 100%; max-width: 480px; margin-top: 36px; }
     .btns-externos.visible { display: block; }
     .btns-externos .btn-cgv { margin-top: 0; }
+
+    /* NOVEDADES */
+    .novedad-item {
+      background: var(--blanco);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+    }
+    .novedad-titulo { color: var(--negro); font-size: 13px; font-weight: 900; margin-bottom: 4px; }
+    .novedad-desc { color: var(--petroleo); font-size: 12px; line-height: 1.5; margin-bottom: 8px; }
+    .novedad-acciones { display: flex; gap: 8px; }
+    .btn-mini { flex: 1; padding: 7px; border-radius: 14px; border: 1.5px solid var(--petroleo); background: transparent; color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 11px; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+    .btn-mini:hover { opacity: 0.7; }
+    .btn-mini.rojo { border-color: var(--error); color: var(--error); }
+    .novedades-vacio { color: var(--petroleo); font-size: 12px; opacity: 0.7; text-align: center; padding: 10px; }
+    .btn-ia { display: block; width: 100%; padding: 11px; border-radius: 20px; border: 2px solid var(--petroleo); background: transparent; color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 12px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; transition: opacity 0.2s, background 0.15s, color 0.15s; }
+    .btn-ia:hover { background: var(--petroleo); color: var(--naranja); }
+    .btn-ia.on { background: var(--petroleo); color: var(--naranja); }
+    .preview-html-box { background: var(--blanco); border: 2px solid var(--petroleo); border-radius: 14px; margin-top: 12px; display: none; overflow: hidden; }
+    .preview-html-box iframe { width: 100%; height: 480px; border: none; display: block; }
   </style>
 </head>
 <body>
@@ -250,8 +263,46 @@
       </div>
 
       <hr class="divider">
+      <div class="section-title">Novedades del próximo boletín</div>
+      <p style="color:var(--petroleo);font-size:12px;margin:0 0 12px;">Lo que cargues acá se incluye en el próximo #BoletínMensual y se borra automáticamente después de enviarse.</p>
+
+      <div id="novedadesLista"><div class="novedades-vacio">No hay novedades cargadas.</div></div>
+
+      <span class="field-label">Título</span>
+      <input type="text" id="novTitulo" placeholder="Ej: Reunión de socios — Julio">
+      <span class="field-label">Descripción</span>
+      <textarea id="novDescripcion" placeholder="Detalle de la novedad..."></textarea>
+      <button type="button" class="btn-ia" id="btnNovIA" onclick="corregirNovedad()">Corrección con IA</button>
+      <div class="loading" id="loadingNov"></div>
+      <div class="msg-box" id="msgNov"></div>
+      <button type="button" class="btn-solid" id="btnNovAccion" onclick="guardarNovedad()">Agregar novedad</button>
+      <button type="button" class="btn-ghost hidden" id="btnNovCancelar" onclick="cancelarEdicionNovedad()" style="display:none;">Cancelar edición</button>
+
+      <hr class="divider">
+      <div class="gestionar-toggle" onclick="toggleHistorialNov()">
+        <span>Últimas 5 novedades enviadas</span>
+        <span id="historialNovFlecha">▼</span>
+      </div>
+      <div class="gestionar-panel" id="historialNovPanel" style="display:none;">
+        <div id="logNovedades" style="font-size:12px;color:var(--petroleo);line-height:1.6;">Cargando...</div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-title">Vista previa y prueba</div>
+      <button type="button" class="btn-outline" onclick="verPreviewBoletin()">Ver vista previa del boletín</button>
+      <div class="preview-html-box" id="previewHtmlBox">
+        <iframe id="previewIframe"></iframe>
+      </div>
+
+      <span class="field-label">Enviar boletín de prueba a</span>
+      <input type="email" id="emailPrueba" value="gacoutada@gmail.com">
+      <div class="loading" id="loadingPrueba"></div>
+      <div class="msg-box" id="msgPrueba"></div>
+      <button type="button" class="btn-outline" onclick="enviarPrueba()">🧪 Enviar boletín de prueba</button>
+
+      <hr class="divider">
       <div class="section-title">Enviar #BoletínMensual</div>
-      <p style="color:var(--petroleo);font-size:13px;margin:0 0 10px;">Envía a todos los suscriptores activos el #BoletínMensual del mes con la cuota vigente en el DASHBOARD.</p>
+      <p style="color:var(--petroleo);font-size:13px;margin:0 0 10px;">Envía a todos los suscriptores activos el #BoletínMensual del mes con la cuota vigente en el DASHBOARD y las novedades cargadas arriba.</p>
       <div class="loading" id="loadingMensual"></div>
       <div class="msg-box" id="msgMensual"></div>
       <button type="button" class="btn-azul" onclick="enviarMensual()">Enviar manualmente #BoletínMensual</button>
@@ -297,6 +348,8 @@ const NOMBRE_CLUB = 'La Eugenia Club de Campo';
 const URL_BOLETIN = 'https://clubdecampolaeugenia.github.io/boletin-la-eugenia/';
 
 let emailParaBaja = '';
+let novedadEditandoId = null;
+let novedadCorregidaIA = false;
 
 window.addEventListener('load', () => {
   const params = new URLSearchParams(window.location.search);
@@ -363,6 +416,8 @@ function verificarPin() {
     ocultarBtnsExternos();
     cargarSuscriptores();
     cargarLog();
+    cargarNovedades();
+    cargarHistorialNovedades();
   } else {
     document.getElementById('pinError').innerText = 'PIN incorrecto.';
     document.getElementById('pinInput').value = '';
@@ -396,9 +451,17 @@ function toggleHistorial() {
   flecha.innerText = isOpen ? '▼' : '▲';
 }
 
+function toggleHistorialNov() {
+  const panel = document.getElementById('historialNovPanel');
+  const flecha = document.getElementById('historialNovFlecha');
+  const isOpen = panel.style.display !== 'none';
+  panel.style.display = isOpen ? 'none' : 'block';
+  flecha.innerText = isOpen ? '▼' : '▲';
+}
+
 async function llamarScript(params) {
   return new Promise((resolve) => {
-    const callbackName = 'cb_' + Date.now();
+    const callbackName = 'cb_' + Date.now() + '_' + Math.floor(Math.random()*10000);
     const url = new URL(SCRIPT_URL);
     Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v));
     url.searchParams.append('callback', callbackName);
@@ -465,7 +528,6 @@ async function cargarSuscriptores() {
     const pendientes = r.suscriptores.filter(s => s.estado === 'pendiente');
     const bajas = r.suscriptores.filter(s => s.estado === 'baja');
 
-    // Actualizar labels con conteo
     document.getElementById('labelActivos').innerText = `Activos (${activos.length})`;
     document.getElementById('labelPendientes').innerText = `Pendientes (${pendientes.length})`;
     document.getElementById('labelBajas').innerText = `Bajas (${bajas.length})`;
@@ -528,14 +590,184 @@ async function desuscribirManual() {
   }
 }
 
+// ============================================================
+// NOVEDADES
+// ============================================================
+async function cargarNovedades() {
+  try {
+    const r = await llamarScript({ accion: 'listarNovedades' });
+    const el = document.getElementById('novedadesLista');
+    if (!r.novedades || r.novedades.length === 0) {
+      el.innerHTML = '<div class="novedades-vacio">No hay novedades cargadas.</div>';
+      return;
+    }
+    el.innerHTML = r.novedades.map(n => `
+      <div class="novedad-item">
+        <div class="novedad-titulo">${escaparTexto(n.titulo)}</div>
+        <div class="novedad-desc">${escaparTexto(n.descripcion)}</div>
+        <div class="novedad-acciones">
+          <button type="button" class="btn-mini" onclick="editarNovedadUI('${n.id}', '${escaparAtributo(n.titulo)}', '${escaparAtributo(n.descripcion)}')">Editar</button>
+          <button type="button" class="btn-mini rojo" onclick="eliminarNovedadUI('${n.id}')">Eliminar</button>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {
+    document.getElementById('novedadesLista').innerHTML = '<div class="novedades-vacio">Error cargando novedades.</div>';
+  }
+}
+
+function escaparTexto(t) {
+  const div = document.createElement('div');
+  div.innerText = t || '';
+  return div.innerHTML;
+}
+function escaparAtributo(t) {
+  return (t || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+function editarNovedadUI(id, titulo, descripcion) {
+  novedadEditandoId = id;
+  document.getElementById('novTitulo').value = titulo;
+  document.getElementById('novDescripcion').value = descripcion;
+  document.getElementById('btnNovAccion').innerText = 'Guardar cambios';
+  document.getElementById('btnNovCancelar').style.display = 'block';
+  document.getElementById('novTitulo').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function cancelarEdicionNovedad() {
+  novedadEditandoId = null;
+  document.getElementById('novTitulo').value = '';
+  document.getElementById('novDescripcion').value = '';
+  document.getElementById('btnNovAccion').innerText = 'Agregar novedad';
+  document.getElementById('btnNovCancelar').style.display = 'none';
+  document.getElementById('btnNovIA').classList.remove('on');
+  novedadCorregidaIA = false;
+}
+
+async function eliminarNovedadUI(id) {
+  if (!confirm('¿Eliminar esta novedad?')) return;
+  try {
+    const r = await llamarScript({ accion: 'eliminarNovedad', id });
+    if (r.ok) cargarNovedades();
+    else mostrarMsg('msgNov', r.mensaje, 'err');
+  } catch(e) {
+    mostrarMsg('msgNov', 'Error al eliminar.', 'err');
+  }
+}
+
+async function guardarNovedad() {
+  const titulo = document.getElementById('novTitulo').value.trim();
+  const descripcion = document.getElementById('novDescripcion').value.trim();
+  if (!titulo) { mostrarMsg('msgNov', 'Ingresá un título.', 'err'); marcarError('novTitulo'); return; }
+  if (!descripcion) { mostrarMsg('msgNov', 'Ingresá una descripción.', 'err'); marcarError('novDescripcion'); return; }
+
+  document.getElementById('loadingNov').innerText = 'Guardando...';
+  try {
+    let r;
+    if (novedadEditandoId) {
+      r = await llamarScript({ accion: 'editarNovedad', id: novedadEditandoId, titulo, descripcion });
+    } else {
+      r = await llamarScript({ accion: 'agregarNovedad', titulo, descripcion });
+    }
+    document.getElementById('loadingNov').innerText = '';
+    mostrarMsg('msgNov', r.mensaje, r.ok ? 'ok' : 'err');
+    if (r.ok) {
+      cancelarEdicionNovedad();
+      cargarNovedades();
+    }
+  } catch(e) {
+    document.getElementById('loadingNov').innerText = '';
+    mostrarMsg('msgNov', 'Error al guardar.', 'err');
+  }
+}
+
+async function corregirNovedad() {
+  const titulo = document.getElementById('novTitulo').value.trim();
+  const descripcion = document.getElementById('novDescripcion').value.trim();
+  if (!titulo || !descripcion) { mostrarMsg('msgNov', 'Completá título y descripción antes de corregir.', 'err'); return; }
+
+  document.getElementById('btnNovIA').classList.add('on');
+  document.getElementById('loadingNov').innerText = 'Corrigiendo con IA...';
+  try {
+    const r = await llamarScript({ accion: 'corregirNovedadIA', titulo, descripcion });
+    document.getElementById('loadingNov').innerText = '';
+    if (r.ok) {
+      document.getElementById('novTitulo').value = r.titulo;
+      document.getElementById('novDescripcion').value = r.descripcion;
+      novedadCorregidaIA = true;
+    } else {
+      mostrarMsg('msgNov', r.mensaje, 'err');
+      document.getElementById('btnNovIA').classList.remove('on');
+    }
+  } catch(e) {
+    document.getElementById('loadingNov').innerText = '';
+    mostrarMsg('msgNov', 'Error al corregir.', 'err');
+    document.getElementById('btnNovIA').classList.remove('on');
+  }
+}
+
+async function cargarHistorialNovedades() {
+  try {
+    const r = await llamarScript({ accion: 'historialNovedades' });
+    const el = document.getElementById('logNovedades');
+    if (!r.historial || r.historial.length === 0) { el.innerText = 'Sin novedades enviadas aún.'; return; }
+    el.innerHTML = r.historial.map(n => {
+      const fecha = new Date(n.fechaEnvio);
+      const fechaStr = fecha.toLocaleDateString('es-AR', {day:'2-digit',month:'2-digit',year:'numeric'});
+      return `<div style="padding:6px 0;border-bottom:1px solid #9bb583;">
+        <div style="font-weight:900;">${escaparTexto(n.titulo)}</div>
+        <div style="opacity:0.8;">${escaparTexto(n.descripcion)}</div>
+        <div style="opacity:0.6;font-size:11px;margin-top:2px;">${n.periodoBoletin} — ${fechaStr}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('logNovedades').innerText = 'Error cargando historial.';
+  }
+}
+
+// ============================================================
+// PREVIEW Y PRUEBA
+// ============================================================
+async function verPreviewBoletin() {
+  try {
+    const r = await llamarScript({ accion: 'previewBoletin' });
+    if (!r.ok) { alert(r.mensaje); return; }
+    const box = document.getElementById('previewHtmlBox');
+    const iframe = document.getElementById('previewIframe');
+    iframe.srcdoc = r.html;
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch(e) {
+    alert('Error al generar la vista previa.');
+  }
+}
+
+async function enviarPrueba() {
+  const email = document.getElementById('emailPrueba').value.trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { mostrarMsg('msgPrueba', 'Ingresá un email válido.', 'err'); marcarError('emailPrueba'); return; }
+  document.getElementById('loadingPrueba').innerText = 'Enviando prueba...';
+  try {
+    const r = await llamarScript({ accion: 'enviarBoletinPrueba', email });
+    document.getElementById('loadingPrueba').innerText = '';
+    mostrarMsg('msgPrueba', r.mensaje, r.ok ? 'ok' : 'err');
+  } catch(e) {
+    document.getElementById('loadingPrueba').innerText = '';
+    mostrarMsg('msgPrueba', 'Error al enviar la prueba.', 'err');
+  }
+}
+
 async function enviarMensual() {
-  if (!confirm('⚠️ Estás por enviar manualmente a todos los suscriptores el #BoletínMensual con la cuota social vigente.\n\n¿Confirmás el envío?')) return;
+  if (!confirm('⚠️ Estás por enviar manualmente a todos los suscriptores el #BoletínMensual con la cuota social vigente y las novedades cargadas.\n\n¿Confirmás el envío?')) return;
   document.getElementById('loadingMensual').innerText = 'Enviando...';
   try {
     const r = await llamarScript({ accion: 'enviarMensual' });
     document.getElementById('loadingMensual').innerText = '';
     mostrarMsg('msgMensual', r.mensaje, r.ok ? 'ok' : 'err');
-    if (r.ok) cargarLog();
+    if (r.ok) {
+      cargarLog();
+      cargarNovedades();
+      cargarHistorialNovedades();
+    }
   } catch(e) {
     document.getElementById('loadingMensual').innerText = '';
     mostrarMsg('msgMensual', 'Error al enviar.', 'err');
@@ -581,7 +813,6 @@ async function cargarLog() {
     const el = document.getElementById('logEnvios');
     if (!r.envios || r.envios.length === 0) { el.innerText = 'Sin envíos registrados aún.'; return; }
 
-    // Agrupar por año
     const porAnio = {};
     r.envios.forEach(e => {
       const fecha = new Date(e.fecha);
