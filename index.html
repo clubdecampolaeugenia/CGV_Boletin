@@ -238,10 +238,6 @@
       </div>
       <div id="statOrigen" style="text-align:center; color:var(--petroleo); font-size:11px; font-weight:700; margin:-10px 0 16px; opacity:0.8;"></div>
 
-      <div id="estadoPdfTesoreria" style="border-radius:14px; padding:12px 14px; margin-bottom:16px; font-size:12px; line-height:1.5; text-align:center;">
-        Verificando PDF de Tesorería...
-      </div>
-
       <div class="lista-wrap" id="listaWrap">
         <div class="mini-toggle" onclick="toggleMini('secActivos','flechaActivos')">
           <span id="labelActivos">Activos</span><span id="flechaActivos" class="mini-flecha">▼</span>
@@ -263,6 +259,9 @@
         <span id="pruebaFlecha">▼</span>
       </div>
       <div class="prueba-panel" id="pruebaPanel">
+        <div id="estadoPdfTesoreria" style="border-radius:10px; padding:12px 14px; margin-bottom:14px; font-size:12px; line-height:1.5; text-align:center;">
+          Verificando PDF de Tesorería...
+        </div>
         <button type="button" class="btn-outline" onclick="verPreviewBoletin()" id="btnVerPreview">Ver vista previa del boletín</button>
         <div class="preview-html-box" id="previewHtmlBox">
           <iframe id="previewIframe"></iframe>
@@ -801,28 +800,28 @@ async function chequearPdfTesoreria() {
   const el = document.getElementById('estadoPdfTesoreria');
   try {
     const r = await llamarScript({ accion: 'chequearEstadoPdfTesoreria' });
-    const urlTesoreria = 'https://clubdecampolaeugenia.github.io/tesoreria-la-eugenia/';
-    const linkConsulta = `<a href="${urlTesoreria}" target="_blank" style="text-decoration:underline; font-weight:900;">Consultar Tesorería</a>`;
 
     if (r.estado === 'ok') {
+      const linkPdf = r.urlVisual ? `<a href="${r.urlVisual}" target="_blank" style="color:var(--petroleo); text-decoration:underline; font-weight:900;">Ver el PDF</a>` : '';
       el.style.background = 'var(--verdecl)';
-      el.style.color = '#135457';
-      el.style.border = '1.5px solid #135457';
-      el.innerHTML = `✅ PDF de Tesorería al día — período: <b>${r.periodoTesoreria}</b>. Se adjuntará al enviar.`;
-    } else if (r.estado === 'desactualizado') {
-      el.style.background = 'var(--verdecl)';
-      el.style.color = '#a04000';
-      el.style.border = '1.5px solid #a04000';
-      el.innerHTML = `⚠️ El PDF adjunto es de <b>${r.periodoTesoreria}</b>, pero la cuota vigente es de <b>${r.periodoBoletin}</b>. ${linkConsulta} para actualizarlo.`;
+      el.style.color = 'var(--petroleo)';
+      el.style.border = '1.5px solid var(--petroleo)';
+      el.innerHTML = `✅ PDF de Tesorería listo — período: <b>${r.periodoTesoreria}</b>. ${linkPdf}`;
+    } else if (r.estado === 'repetido') {
+      const linkPdf = r.urlVisual ? `<a href="${r.urlVisual}" target="_blank" style="color:var(--negro); text-decoration:underline; font-weight:900;">Ver el PDF</a>` : '';
+      el.style.background = 'var(--naranja)';
+      el.style.color = 'var(--negro)';
+      el.style.border = '1.5px solid var(--negro)';
+      el.innerHTML = `⚠️ Es el mismo PDF (<b>${r.periodoTesoreria}</b>) ya adjuntado en el envío anterior. ${linkPdf}`;
     } else {
-      el.style.background = 'var(--verdecl)';
-      el.style.color = '#c0392b';
-      el.style.border = '1.5px solid #c0392b';
-      el.innerHTML = `⚠️ No se encontró un PDF de Tesorería publicado. El boletín se enviará sin adjunto. ${linkConsulta}`;
+      el.style.background = 'var(--naranja)';
+      el.style.color = 'var(--negro)';
+      el.style.border = '1.5px solid var(--negro)';
+      el.innerHTML = '⚠️ No se encontró un PDF de Tesorería publicado. El boletín se enviará sin adjunto.';
     }
   } catch(e) {
-    el.style.background = 'var(--verdecl)';
-    el.style.color = '#c0392b';
+    el.style.background = 'var(--naranja)';
+    el.style.color = 'var(--negro)';
     el.innerText = '⚠️ No se pudo verificar el estado del PDF de Tesorería.';
   }
 }
@@ -847,8 +846,8 @@ async function enviarMensual() {
     const check = await llamarScript({ accion: 'chequearEstadoPdfTesoreria' });
     if (check.estado === 'faltante') {
       avisoExtra = '\n\n⚠️ ATENCIÓN: no se encontró un PDF de Tesorería publicado. El boletín se enviará SIN adjunto.';
-    } else if (check.estado === 'desactualizado') {
-      avisoExtra = '\n\n⚠️ ATENCIÓN: el PDF de Tesorería es de ' + check.periodoTesoreria + ', pero la cuota vigente es de ' + check.periodoBoletin + '. Revisá Tesorería antes de enviar.';
+    } else if (check.estado === 'repetido') {
+      avisoExtra = '\n\n⚠️ ATENCIÓN: el PDF de Tesorería (' + check.periodoTesoreria + ') es el mismo que ya se adjuntó en el envío anterior. Verificá si ya se publicó el movimiento del mes recién cerrado.';
     }
   } catch(e) { /* si falla el check, seguimos igual con el flujo normal */ }
 
