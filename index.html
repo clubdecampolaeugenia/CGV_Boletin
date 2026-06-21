@@ -82,8 +82,9 @@
     .btn-cgv:hover { opacity: 0.88; }
 
     .btn-admin { display: block; width: 100%; max-width: 480px; padding: 16px; border-radius: 12px; border: 2px solid var(--lima); background: transparent; color: var(--lima); font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; }
-    .btn-admin-sutil { display: block; width: 100%; max-width: 480px; padding: 14px; border-radius: 12px; border: 1.5px solid rgba(19,84,87,0.5); background: rgba(255,255,255,0.1); color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; cursor: pointer; margin-top: 10px; text-align: center; opacity: 0.9; transition: opacity 0.2s; }
-    .btn-admin-sutil:hover { opacity: 1; }
+    .icono-admin-wrap { text-align: center; margin-top: 28px; }
+    .icono-admin { width: 26px; height: 26px; opacity: 0.55; cursor: pointer; border: none; background: transparent; padding: 0; transition: opacity 0.2s; }
+    .icono-admin:hover { opacity: 0.85; }
     .btn-admin:hover { opacity: 0.75; }
 
     .msg-pendiente { background: var(--blanco); border: 2px solid var(--petroleo); border-radius: 24px; padding: 12px 14px; color: var(--petroleo); font-size: 14px; text-align: center; display: none; margin-top: 10px; animation: destelloAzul 2s ease-in-out infinite; }
@@ -153,7 +154,7 @@
 
     .btns-externos { display: none; width: 100%; max-width: 480px; margin-top: 36px; }
     .btns-externos.visible { display: block; }
-    .btns-externos .btn-cgv { margin-top: 0; }
+    .btns-externos .btn-cgv { margin-top: 10px; }
 
     /* NOVEDADES */
     .novedad-item {
@@ -307,7 +308,7 @@
         <input type="text" id="novTitulo" placeholder="Ej: Reunión de socios — Julio">
         <span class="field-label">Descripción</span>
         <textarea id="novDescripcion" placeholder="Detalle de la novedad..."></textarea>
-        <button type="button" class="btn-ia" id="btnNovIA" onclick="corregirNovedad()">♦ Corrección con IA</button>
+        <button type="button" class="btn-ia" id="btnNovIA" onclick="corregirNovedad()">Corrección con IA ♦</button>
         <div class="loading" id="loadingNov"></div>
         <div class="msg-box" id="msgNov"></div>
         <button type="button" class="btn-solid" id="btnNovAccion" onclick="guardarNovedad()">Agregar novedad</button>
@@ -325,7 +326,7 @@
         <input type="text" id="commAsunto" placeholder="Ej: Convocatoria a Asamblea" oninput="actualizarPreview()">
         <span class="field-label">Mensaje</span>
         <textarea id="commCuerpo" placeholder="Escribí el mensaje..." oninput="actualizarPreview()"></textarea>
-        <button type="button" class="btn-ia" id="btnCommIA" onclick="corregirComunicado()">♦ Corrección con IA</button>
+        <button type="button" class="btn-ia" id="btnCommIA" onclick="corregirComunicado()">Corrección con IA ♦</button>
         <div class="loading" id="loadingCommIA"></div>
         <div class="preview-box" id="previewBox">
           <div class="preview-titulo">Vista previa</div>
@@ -364,9 +365,13 @@
   </div>
 
   <div class="btns-externos" id="btnsExternos">
-    <a class="btn-admin" href="https://script.google.com/macros/s/AKfycbw-m5ffo9Ul05FO88O-7I09_BPZrYYm4awYcQcC47pPjMQ5fV9xI-8kzkH6IKgnSJvW/exec?ver=actual" target="_blank" rel="noopener" style="margin-top:0;">Ver #BoletínMensual vigente</a>
+    <a class="btn-admin" href="https://script.google.com/macros/s/AKfycbw-m5ffo9Ul05FO88O-7I09_BPZrYYm4awYcQcC47pPjMQ5fV9xI-8kzkH6IKgnSJvW/exec?ver=actual" target="_blank" rel="noopener">Ver #BoletínMensual vigente</a>
     <a class="btn-cgv" href="https://clubdecampolaeugenia.taplink.site/" target="_blank">Ir al Centro de Gestión Vecinal</a>
-    <button type="button" class="btn-admin-sutil" onclick="mostrarPin()">Acceso reservado a personal autorizado</button>
+    <div class="icono-admin-wrap">
+      <button type="button" class="icono-admin" onclick="mostrarPin()" aria-label="Acceso reservado a personal autorizado" title="Acceso reservado a personal autorizado">
+        <img src="https://i.imgur.com/SAsEouk.png" alt="" style="width:100%; height:100%; display:block;">
+      </button>
+    </div>
   </div>
 
 <script>
