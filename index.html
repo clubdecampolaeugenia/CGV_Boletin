@@ -455,6 +455,7 @@ function verificarPin() {
     cargarSuscriptores();
     cargarLog();
     cargarNovedades();
+    chequearPdfTesoreria();
   } else {
     document.getElementById('pinError').innerText = 'PIN incorrecto.';
     document.getElementById('pinInput').value = '';
@@ -770,30 +771,59 @@ async function corregirComunicado() {
 // PREVIEW Y PRUEBA
 // ============================================================
 async function verPreviewBoletin() {
+  const box = document.getElementById('previewHtmlBox');
+  const btn = document.getElementById('btnVerPreview');
+
+  // Si ya está abierto, lo cerramos (toggle)
+  if (box.classList.contains('open')) {
+    box.classList.remove('open');
+    box.style.display = 'none';
+    btn.innerText = 'Ver vista previa del boletín';
+    return;
+  }
+
   try {
     const r = await llamarScript({ accion: 'previewBoletin' });
     if (!r.ok) { alert(r.mensaje); return; }
-    const box = document.getElementById('previewHtmlBox');
     const iframe = document.getElementById('previewIframe');
     iframe.srcdoc = r.html;
     box.style.display = 'block';
-
-    const alerta = document.getElementById('alertaPdfTesoreria');
-    if (r.pdfDisponible) {
-      alerta.style.display = 'block';
-      alerta.style.background = '#d5f5e3';
-      alerta.style.color = '#1e8449';
-      alerta.innerText = '✅ PDF de Movimiento de Tesorería encontrado — se adjuntará al enviar.';
-    } else {
-      alerta.style.display = 'block';
-      alerta.style.background = '#fdecea';
-      alerta.style.color = '#c0392b';
-      alerta.innerText = '⚠️ No se encontró un PDF de Tesorería publicado. El boletín se enviará SIN adjunto.';
-    }
-
+    box.classList.add('open');
+    btn.innerText = 'Ocultar vista previa';
     box.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch(e) {
     alert('Error al generar la vista previa.');
+  }
+}
+
+// Estado del PDF de Tesorería — siempre visible, se carga al entrar al panel admin
+async function chequearPdfTesoreria() {
+  const el = document.getElementById('estadoPdfTesoreria');
+  try {
+    const r = await llamarScript({ accion: 'chequearEstadoPdfTesoreria' });
+    const urlTesoreria = 'https://clubdecampolaeugenia.github.io/tesoreria-la-eugenia/';
+    const linkConsulta = `<a href="${urlTesoreria}" target="_blank" style="text-decoration:underline; font-weight:900;">Consultar Tesorería</a>`;
+
+    if (r.estado === 'ok') {
+      el.style.background = 'var(--verdecl)';
+      el.style.color = '#135457';
+      el.style.border = '1.5px solid #135457';
+      el.innerHTML = `✅ PDF de Tesorería al día — período: <b>${r.periodoTesoreria}</b>. Se adjuntará al enviar.`;
+    } else if (r.estado === 'desactualizado') {
+      el.style.background = 'var(--verdecl)';
+      el.style.color = '#a04000';
+      el.style.border = '1.5px solid #a04000';
+      el.innerHTML = `⚠️ El PDF adjunto es de <b>${r.periodoTesoreria}</b>, pero la cuota vigente es de <b>${r.periodoBoletin}</b>. ${linkConsulta} para actualizarlo.`;
+    } else {
+      el.style.background = 'var(--verdecl)';
+      el.style.color = '#c0392b';
+      el.style.border = '1.5px solid #c0392b';
+      el.innerHTML = `⚠️ No se encontró un PDF de Tesorería publicado. El boletín se enviará sin adjunto. ${linkConsulta}`;
+    }
+  } catch(e) {
+    el.style.background = 'var(--verdecl)';
+    el.style.color = '#c0392b';
+    el.innerText = '⚠️ No se pudo verificar el estado del PDF de Tesorería.';
   }
 }
 
@@ -814,9 +844,11 @@ async function enviarPrueba() {
 async function enviarMensual() {
   let avisoExtra = '';
   try {
-    const check = await llamarScript({ accion: 'previewBoletin' });
-    if (check.ok && !check.pdfDisponible) {
+    const check = await llamarScript({ accion: 'chequearEstadoPdfTesoreria' });
+    if (check.estado === 'faltante') {
       avisoExtra = '\n\n⚠️ ATENCIÓN: no se encontró un PDF de Tesorería publicado. El boletín se enviará SIN adjunto.';
+    } else if (check.estado === 'desactualizado') {
+      avisoExtra = '\n\n⚠️ ATENCIÓN: el PDF de Tesorería es de ' + check.periodoTesoreria + ', pero la cuota vigente es de ' + check.periodoBoletin + '. Revisá Tesorería antes de enviar.';
     }
   } catch(e) { /* si falla el check, seguimos igual con el flujo normal */ }
 
@@ -829,6 +861,7 @@ async function enviarMensual() {
     if (r.ok) {
       cargarLog();
       cargarNovedades();
+      chequearPdfTesoreria();
     }
   } catch(e) {
     document.getElementById('loadingMensual').innerText = '';
