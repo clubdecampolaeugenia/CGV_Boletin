@@ -238,6 +238,10 @@
       </div>
       <div id="statOrigen" style="text-align:center; color:var(--petroleo); font-size:11px; font-weight:700; margin:-10px 0 16px; opacity:0.8;"></div>
 
+      <div id="estadoPdfTesoreria" style="border-radius:14px; padding:12px 14px; margin-bottom:16px; font-size:12px; line-height:1.5; text-align:center;">
+        Verificando PDF de Tesorería...
+      </div>
+
       <div class="lista-wrap" id="listaWrap">
         <div class="mini-toggle" onclick="toggleMini('secActivos','flechaActivos')">
           <span id="labelActivos">Activos</span><span id="flechaActivos" class="mini-flecha">▼</span>
@@ -259,8 +263,7 @@
         <span id="pruebaFlecha">▼</span>
       </div>
       <div class="prueba-panel" id="pruebaPanel">
-        <button type="button" class="btn-outline" onclick="verPreviewBoletin()">Ver vista previa del boletín</button>
-        <div id="alertaPdfTesoreria" style="display:none; margin-top:10px; padding:10px 14px; border-radius:10px; font-size:12px; font-weight:700; text-align:center;"></div>
+        <button type="button" class="btn-outline" onclick="verPreviewBoletin()" id="btnVerPreview">Ver vista previa del boletín</button>
         <div class="preview-html-box" id="previewHtmlBox">
           <iframe id="previewIframe"></iframe>
         </div>
