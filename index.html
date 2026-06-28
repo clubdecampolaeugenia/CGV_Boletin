@@ -65,6 +65,9 @@
     .btn-v-ghost { display:block; width:100%; padding:13px; border-radius:24px; border:2px solid var(--lima); background:transparent; color:var(--lima); font-family:'Roboto',sans-serif; font-size:14px; font-weight:900; text-transform:uppercase; cursor:pointer; margin-top:10px; text-align:center; transition:transform 0.08s, opacity 0.15s; }
     .btn-v-ghost:hover { opacity:0.8; }
     .btn-v-ghost:active { transform:scale(0.96); }
+    .btn-v-todos { display:block; width:100%; padding:13px; border-radius:24px; border:2px dashed var(--lima); background:transparent; color:var(--lima); font-family:'Roboto',sans-serif; font-size:14px; font-weight:900; text-transform:uppercase; cursor:pointer; margin-top:10px; text-align:center; transition:transform 0.08s, opacity 0.15s; }
+    .btn-v-todos:hover { opacity:0.8; }
+    .btn-v-todos:active { transform:scale(0.96); }
     .btn-prep-accion { display:block; width:100%; padding:13px; border-radius:24px; border:2px solid var(--naranja); background:transparent; color:var(--naranja); font-family:'Roboto',sans-serif; font-size:14px; font-weight:900; text-transform:uppercase; cursor:pointer; margin-top:10px; text-align:center; }
     .btn-prep-accion:hover { opacity:0.8; }
     .btn-prep-fill { display:block; width:100%; padding:13px; border-radius:24px; border:2px solid var(--petroleo); background:var(--naranja); color:var(--petroleo); font-family:'Roboto',sans-serif; font-size:14px; font-weight:900; text-transform:uppercase; cursor:pointer; margin-top:10px; text-align:center; transition:transform 0.08s, opacity 0.15s; }
@@ -298,7 +301,7 @@
           <input type="email" id="emailReenvio" placeholder="email@ejemplo.com" style="background:var(--blanco);border-color:var(--lima);">
           <div class="loading loading-lima" id="loadingReenvio"></div>
           <div class="msg-box" id="msgReenvio"></div>
-          <button type="button" class="btn-v-ghost" onclick="reenviarIndividual()">Reenviar boletín vigente</button>
+          <button type="button" class="btn-v-ghost" onclick="reenviarIndividual()">Enviar Boletín Vigente a 1 suscriptor</button>
 
           <hr style="border:none;border-top:1px solid rgba(196,223,87,0.25);margin:14px 0;">
 
@@ -306,7 +309,7 @@
           <p style="color:var(--lima);font-size:11px;margin:0 0 10px;opacity:0.75;">Para usar solo si el envío automático del día 1 falla.</p>
           <div class="loading loading-lima" id="loadingMensual"></div>
           <div class="msg-box" id="msgMensual"></div>
-          <button type="button" class="btn-v-ghost" onclick="enviarMensual()">Enviar #BoletínMensual a todos los suscriptores</button>
+          <button type="button" class="btn-v-todos" onclick="enviarMensual()">Enviar Boletín Vigente a TODOS los suscriptores</button>
         </div>
       </div>
 
